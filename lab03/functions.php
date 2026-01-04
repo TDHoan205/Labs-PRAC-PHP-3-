@@ -1,40 +1,45 @@
 <?php
-function max2($a, $b){
-return ($a>$b )?$a:$b;
-}
-function min2($a, $b){
+/**
+ * Trình bày các hàm xử lý logic cơ bản cho Lab 03
+ */
 
-    return ($a<$b )?$a:$b;  
+// 1. Tìm số lớn nhất và nhỏ nhất
+function max2($a, $b) {
+    return ($a > $b) ? $a : $b;
 }
-function isPrime($n){
-    if($n<2) return false;
-    if($n== 2) return true;
-    if($n% 2== 0) return false;
 
-    for ($i = 3; $i * $i <= $n; $i += 2){
-        if($n%$i == 0) return false;
+function min2($a, $b) {
+    return ($a < $b) ? $a : $b;
+}
+
+// 2. Kiểm tra số nguyên tố: Trả về true nếu $n là số nguyên tố
+function isPrime(int $n): bool {
+    if ($n < 2) return false;
+    for ($i = 2; $i <= sqrt($n); $i++) {
+        if ($n % $i == 0) return false;
     }
     return true;
 }
 
-function factorial($n){
+// 3. Tính giai thừa: n! = 1 * 2 * ... * n
+function factorial(int $n) {
     if ($n < 0) return null;
-
-    $res = 1;
-    for ($i = 2; $i <= $n; $i++) { // <= n
-        $res *= $i;
+    if ($n == 0) return 1;
+    $result = 1;
+    for ($i = 1; $i <= $n; $i++) {
+        $result *= $i;
     }
-    return $res;
+    return $result;
 }
 
-function gcd ($a, $b){
-    $a=abs((int)$a);
-    $b=abs((int)$b);
-
-    while ($b != 0){
-        $r=$a%$b;
-        $a=$b;
-        $b=$r;
+// 4. Tìm ước chung lớn nhất (GCD) bằng thuật toán Euclid
+function gcd(int $a, int $b): int {
+    $a = abs($a);
+    $b = abs($b);
+    while ($b != 0) {
+        $r = $a % $b;
+        $a = $b;
+        $b = $r;
     }
     return $a;
 }

@@ -1,60 +1,41 @@
 <?php
 require_once "functions.php";
-$action =$_GET['action'] ??'';
 
-$a=$_GET['a'] ?? 0;
-$b=$_GET['b'] ?? 0;
-$n=$_GET['n'] ?? 0;
-?>
+$action = $_GET["action"] ?? "home";
+$a = isset($_GET["a"]) ? (int)$_GET["a"] : 0;
+$b = isset($_GET["b"]) ? (int)$_GET["b"] : 0;
+$n = isset($_GET["n"]) ? (int)$_GET["n"] : 0;
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <TItle>Lab 03- Menu hàm PHP</TItle>
-</head>
-<body>
-    <h2> Lab 03 - Mini Utility PHP</h2>
-    <!--Menu gọi qua URL-->
-<ul>
-    <li><a href="?action=max&a=5&b=3">Max của 5 và 3</a></li>
-    <li><a href="?action=min&a=5&b=3">Min của 5 và 3</a></li>
-    <li><a href="?action=prime&n=5">Kiểm tra số nguyên tố của 17</a></li>
-    <li><a href="?action=factorial&n=5">Giai thừa của 5!</a></li>
-    <li><a href="?action=gcd&a=24&b=18">UCLN của 24 và 18</a></li>
-</ul>
-<hr>
-<?php
-switch($action){
-case'max':
-    echo"Max của $a và $b là: " . max2($a,$b);
-    break;
-case'min':
-    echo"Min của $a và $b là: " . min2($a,$b);
-    break;
-case'prime':
-  if(isPrime($n)){
-    echo"$n là số nguyên tố";
-  } else{
-    echo "$n không phải là số nguyên tố";
-  }
-    break;
-case'factorial':
-   $result =factorial($n);
-   if($result===null){
-    echo "Không tính được gia thừa của số âm";
+echo "<h2>LAB03 - Mini Utility</h2>";
+echo "<p>
+<a href='?action=max&a=10&b=22'>Max</a> |
+<a href='?action=min&a=10&b=22'>Min</a> |
+<a href='?action=prime&n=17'>Prime</a> |
+<a href='?action=fact&n=6'>Factorial</a> |
+<a href='?action=gcd&a=12&b=18'>GCD</a>
+</p>";
 
-   }else{
-    echo "Giai thừa của $n là: $result";
-   }
-    break;
-case'gcd':
-    echo"UCLN của $a và $b là: " . gcd($a,$b);
-    break;
-default:
-echo"Lựa chọn không hợp lệ, vui lòng chọn lại.";
-
+echo "<div style='border: 1px solid #ccc; padding: 15px; background: #f9f9f9;'>";
+switch ($action) {
+    case "max":
+        echo "Max của $a và $b là: " . max2($a, $b);
+        break;
+    case "min":
+        echo "Min của $a và $b là: " . min2($a, $b);
+        break;
+    case "prime":
+        echo "Số $n " . (isPrime($n) ? "là số nguyên tố" : "không phải số nguyên tố");
+        break;
+    case "fact":
+        $res = factorial($n);
+        echo "Giai thừa của $n là: " . ($res ?? "Không hợp lệ");
+        break;
+    case "gcd":
+        echo "ƯCLN của $a và $b là: " . gcd($a, $b);
+        break;
+    default:
+        echo "Vui lòng chọn một chức năng từ menu trên.";
+        break;
 }
+echo "</div>";
 ?>
-</body>
-</html>
