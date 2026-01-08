@@ -1,0 +1,12 @@
+[
+  {
+    "course_code": "PHP01",
+    "course_name": "Lập trình PHP",
+    "credits": 3
+  },
+  {
+    "course_code": "JS01",
+    "course_name": "JavaScript cơ bản",
+    "credits": 2
+  }
+]

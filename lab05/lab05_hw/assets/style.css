@@ -1,0 +1,241 @@
+/* ==============================
+   RESET + GLOBAL
+================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    min-height: 100vh;
+    color: #1f2937;
+}
+
+/* ==============================
+   LOGIN PAGE
+================================ */
+.center-box {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+    background: #ffffff;
+    width: 400px;
+    padding: 32px 36px;
+    border-radius: 14px;
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.18),
+        0 1px 3px rgba(0,0,0,0.08);
+    animation: fadeIn 0.6s ease;
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 22px;
+    font-size: 24px;
+    color: #1f2937;
+}
+
+.login-box label {
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 18px;
+    display: block;
+    color: #374151;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+    transition: .2s;
+}
+
+.login-box input:focus {
+    outline: none;
+    border-color: #4e73df;
+    box-shadow: 0 0 0 3px rgba(78,115,223,.15);
+}
+
+.login-box label input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+.login-box button {
+    width: 100%;
+    margin-top: 24px;
+    padding: 14px;
+    background: linear-gradient(135deg, #4e73df, #224abe);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.login-box button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(78,115,223,.35);
+}
+
+/* ==============================
+   HEADER / NAVBAR
+================================ */
+.header {
+    background: #ffffff;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.08);
+}
+
+.header a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #4e73df;
+    position: relative;
+}
+
+.header a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #4e73df;
+    transition: .2s;
+}
+
+.header a:hover::after {
+    width: 100%;
+}
+
+/* ==============================
+   MAIN CONTAINER
+================================ */
+.container {
+    max-width: 1000px;
+    margin: 32px auto;
+    background: #ffffff;
+    padding: 30px 34px;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.12);
+    animation: fadeInUp .5s ease;
+}
+
+.container h2 {
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+
+.container p {
+    margin-bottom: 20px;
+    color: #4b5563;
+}
+
+/* ==============================
+   BUTTONS
+================================ */
+button {
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: none;
+    background: #4e73df;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+button:hover {
+    background: #224abe;
+    box-shadow: 0 6px 16px rgba(78,115,223,.35);
+}
+
+/* ==============================
+   FLASH MESSAGES
+================================ */
+.flash-success,
+.flash-error,
+.flash-info {
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.flash-success {
+    background: #ecfdf5;
+    color: #065f46;
+    border-left: 5px solid #10b981;
+}
+
+.flash-error {
+    background: #fef2f2;
+    color: #991b1b;
+    border-left: 5px solid #ef4444;
+}
+
+.flash-info {
+    background: #eef2ff;
+    color: #3730a3;
+    border-left: 5px solid #6366f1;
+}
+
+/* ==============================
+   ERROR BOX
+================================ */
+.error {
+    background: #fef2f2;
+    color: #991b1b;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+/* ==============================
+   ANIMATIONS
+================================ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==============================
+   RESPONSIVE
+================================ */
+@media (max-width: 500px) {
+    .login-box {
+        width: 90%;
+        padding: 26px;
+    }
+
+    .container {
+        margin: 20px;
+        padding: 24px;
+    }
+}
