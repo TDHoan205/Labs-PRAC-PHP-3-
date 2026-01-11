@@ -1,0 +1,41 @@
+[
+    {
+        "borrow_id": "PH1768110474",
+        "member_id": "Hoàn",
+        "book_isbn": "12",
+        "borrow_date": "2026-01-10",
+        "due_date": "2026-01-12",
+        "status": "Đang mượn"
+    },
+    {
+        "borrow_id": "PH1768111405",
+        "member_id": "admin",
+        "member_name": "hihi@gmail.com",
+        "book_isbn": "12",
+        "book_title": "ee",
+        "borrow_date": "2026-01-10",
+        "due_date": "2026-01-12",
+        "status": "Đang mượn"
+    },
+    {
+        "borrow_id": "PH1768112714",
+        "member_id": "TV001",
+        "member_name": "Trần Đức Hoàn",
+        "book_isbn": "8",
+        "book_title": "Wbs",
+        "borrow_date": "2026-01-09",
+        "due_date": "2026-01-16",
+        "status": "Đang mượn"
+    },
+    {
+        "borrow_id": "PH1768113222",
+        "member_id": "TV002",
+        "member_name": "Hoàn",
+        "book_isbn": "8",
+        "book_title": "Wbs",
+        "borrow_date": "2026-01-10",
+        "due_date": "2026-01-12",
+        "status": "Đã trả",
+        "return_actual_date": "2026-01-11"
+    }
+]

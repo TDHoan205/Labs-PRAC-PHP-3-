@@ -1,0 +1,29 @@
+{
+    "customer": {
+        "name": "admin",
+        "email": "hihi@gmail.com",
+        "phone": "0388720624"
+    },
+    "items": [
+        {
+            "name": "",
+            "qty": 3,
+            "price": 3
+        },
+        {
+            "name": "VỞ",
+            "qty": 3,
+            "price": 2000
+        },
+        {
+            "name": "Bút",
+            "qty": 1,
+            "price": 3000
+        }
+    ],
+    "discount": 0,
+    "vat": 0,
+    "payment": "Tiền mặt",
+    "subtotal": 9000,
+    "total": 9000
+}

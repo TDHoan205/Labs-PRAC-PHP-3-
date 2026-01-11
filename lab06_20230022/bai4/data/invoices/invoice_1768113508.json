@@ -1,0 +1,29 @@
+{
+    "customer": {
+        "name": "Trần Đức Hoàn",
+        "email": "hihi@gmail.com",
+        "phone": "0123456"
+    },
+    "items": [
+        {
+            "name": "SÁCH",
+            "qty": 3,
+            "price": 1000
+        },
+        {
+            "name": "VỞ",
+            "qty": 3,
+            "price": 2000
+        },
+        {
+            "name": "Bút",
+            "qty": 1,
+            "price": 3000
+        }
+    ],
+    "discount": 0,
+    "vat": 0,
+    "payment": "Chuyển khoản",
+    "subtotal": 12000,
+    "total": 12000
+}
