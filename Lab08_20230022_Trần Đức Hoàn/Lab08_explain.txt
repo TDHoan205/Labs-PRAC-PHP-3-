@@ -1,0 +1,8 @@
+Trong phần tối ưu truy vấn, tôi chọn các truy vấn Q4 và Q8 vì có điều kiện lọc và JOIN nhiều bảng.
+
+Trước khi tạo index, EXPLAIN cho thấy MySQL sử dụng kiểu ALL và không dùng key, dẫn đến quét toàn bảng loans.
+
+Tôi tạo index (status, due_date) trên bảng loans để tối ưu các truy vấn lọc theo trạng thái mượn và ngày đến hạn. 
+Ngoài ra, index trên loan_items(book_id) giúp JOIN với bảng books hiệu quả hơn.
+
+Sau khi tạo index, EXPLAIN cho thấy MySQL đã sử dụng key phù hợp, số dòng ước lượng giảm và kiểu truy cập tốt hơn (ref/range), chứng tỏ truy vấn đã được tối ưu.
