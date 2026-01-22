@@ -19,8 +19,20 @@ class OrderController {
 
     // Tiêu chí: Xem chi tiết đơn hàng (Show)
     public function show() {
-        $id = $_GET['id'];
+        $id = $_GET['id'] ?? null;
+        if (!$id) {
+            $error = "Thiếu mã đơn hàng.";
+            $orders = $this->oRepo->getAllOrders();
+            require __DIR__ . '/../views/orders/index.php';
+            return;
+        }
         $order = $this->oRepo->getOrderById($id);
+        if (!$order) {
+            $error = "Không tìm thấy đơn hàng.";
+            $orders = $this->oRepo->getAllOrders();
+            require __DIR__ . '/../views/orders/index.php';
+            return;
+        }
         $items = $this->oRepo->getOrderItems($id);
         require __DIR__ . '/../views/orders/show.php';
     }
@@ -32,7 +44,7 @@ class OrderController {
     }
 
     public function store() {
-        $cid = $_POST['customer_id'];
+        $cid = $_POST['customer_id'] ?? null;
         $items = [];
         
         // Lọc sản phẩm được chọn
@@ -42,15 +54,31 @@ class OrderController {
                 // Tiêu chí: Validate Qty > 0
                 if ($qty > 0) {
                     $prod = $this->pRepo->getById($pid);
-                    $items[] = ['product_id' => $pid, 'qty' => $qty, 'price' => $prod['price']];
+                    if ($prod) {
+                        $items[] = ['product_id' => $pid, 'qty' => $qty, 'price' => $prod['price'], 'stock' => $prod['stock']];
+                    }
                 }
             }
         }
 
+        if (!$cid) {
+            $error = "Vui lòng chọn khách hàng.";
+            $this->create(); 
+            return;
+        }
         if (empty($items)) {
             $error = "Vui lòng chọn ít nhất 1 sản phẩm với số lượng > 0";
             $this->create(); 
             return;
+        }
+
+        // Kiểm tra tồn kho tối thiểu trước khi tạo
+        foreach ($items as $item) {
+            if ($item['qty'] > $item['stock']) {
+                $error = "Sản phẩm ID {$item['product_id']} vượt quá tồn kho khả dụng.";
+                $this->create();
+                return;
+            }
         }
 
         try {

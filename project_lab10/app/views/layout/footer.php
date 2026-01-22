@@ -1,6 +1,7 @@
-</div>
-    <div style="text-align:center; padding: 20px; color: #666; margin-top:50px;">
-        &copy; 2024 Sales Management System
+        </main>
     </div>
+    <footer>
+        &copy; 2024-2026 Sales Console · Thiết kế tối ưu hiệu suất & trải nghiệm.
+    </footer>
 </body>
 </html>

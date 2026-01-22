@@ -1,9 +1,22 @@
 <?php include __DIR__ . '/../layout/header.php'; ?>
 <div class="card">
-    <h2>Chi Tiết Đơn Hàng #<?= $order['id'] ?></h2>
+    <div class="section-title">
+        <div>
+            <h2>Đơn hàng #<?= $order['id'] ?></h2>
+            <p class="text-muted">Thông tin chi tiết và trạng thái thanh toán.</p>
+        </div>
+        <span class="badge badge-success">Hoàn tất</span>
+    </div>
+
     <div class="alert">
-        <strong>Khách hàng:</strong> <?= $order['full_name'] ?> | 
-        <strong>Ngày đặt:</strong> <?= $order['order_date'] ?>
+        <div class="stack">
+            <strong>Khách hàng:</strong> <?= $order['full_name'] ?>
+            <span class="pill"><?= $order['email'] ?> | <?= $order['phone'] ?></span>
+        </div>
+        <div class="stack" style="margin-top:8px;">
+            <strong>Ngày đặt:</strong> <?= $order['order_date'] ?>
+            <span class="badge">Tổng: <?= number_format($order['total']) ?> đ</span>
+        </div>
     </div>
     
     <table>
@@ -13,18 +26,18 @@
             <tr>
                 <td><?= $item['name'] ?></td>
                 <td><?= $item['sku'] ?></td>
-                <td><?= number_format($item['price']) ?></td>
+                <td><?= number_format($item['price']) ?> đ</td>
                 <td><?= $item['qty'] ?></td>
-                <td><?= number_format($item['price'] * $item['qty']) ?></td>
+                <td><?= number_format($item['price'] * $item['qty']) ?> đ</td>
             </tr>
             <?php endforeach; ?>
             <tr>
                 <td colspan="4" style="text-align:right; font-weight:bold;">TỔNG CỘNG:</td>
-                <td style="color:red; font-weight:bold; font-size:1.2rem;"><?= number_format($order['total']) ?> đ</td>
+                <td><span class="badge badge-success" style="font-size:1rem;"><?= number_format($order['total']) ?> đ</span></td>
             </tr>
         </tbody>
     </table>
     <br>
-    <a href="index.php?c=orders" class="btn">Quay lại danh sách</a>
+    <a href="index.php?c=orders" class="btn btn-ghost">Quay lại danh sách</a>
 </div>
 <?php include __DIR__ . '/../layout/footer.php'; ?>

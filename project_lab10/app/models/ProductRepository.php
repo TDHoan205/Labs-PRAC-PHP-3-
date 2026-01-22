@@ -4,13 +4,9 @@ class ProductRepository {
     public function __construct($pdo) { $this->pdo = $pdo; }
 
     public function getAll($kw = '') {
-        // Sửa: Dùng dấu ? thay vì :kw để tránh lỗi lặp lại tham số
         $sql = "SELECT * FROM products WHERE name LIKE ? OR sku LIKE ? ORDER BY created_at DESC";
         $stmt = $this->pdo->prepare($sql);
-        
-        // Truyền tham số 2 lần (cho name và cho sku)
-        $stmt->execute(["%$kw%", "%$kw%"]); 
-        
+        $stmt->execute(["%$kw%", "%$kw%"]);
         return $stmt->fetchAll();
     }
     public function getById($id) {
