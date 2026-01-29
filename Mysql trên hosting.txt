@@ -1,0 +1,14 @@
+MySQL DB Name: (Ví dụ: if0_36544_lab15)
+
+MySQL User Name: (Ví dụ: if0_36544)
+
+MySQL Password: (Là mật khẩu bạn đặt lúc tạo Account ở Bước 1, hoặc bấm "Show" để xem).
+
+MySQL Host Name: (Ví dụ: sql301.infinityfree.com - Cái này quan trọng, không phải lúc nào cũng là localhost).
+
+Current Databases
+MySQL DB Name if0_41021015_lab15
+MySQL User Name	if0_41021015
+MySQL Password	Hoanhb9999
+MySQL Host Name	sql213.infinityfree.com
+			
